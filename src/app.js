@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const userRoute = require("./routes/userRoute");
 
 app.use(express.json());
@@ -12,6 +11,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Internal server error" });
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.get("/", (req, res) => {
+  res.send("API is running to the moon 🚀");
 });
+
+module.exports = app;
