@@ -1,18 +1,16 @@
-const express = require("express");
+import express from "express";
+import productRoutes from "./routes/product.routes.js";
+import orderRoutes from "./routes/order.routes.js";
+
 const app = express();
-const userRoute = require("./routes/userRoute");
 
 app.use(express.json());
 
-app.use("/users", userRoute);
-
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).json({ message: "Internal server error" });
-});
+app.use("/api", productRoutes);
+app.use("/api", orderRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running to the moon 🚀");
 });
 
-module.exports = app;
+export default app;

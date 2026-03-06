@@ -1,48 +1,43 @@
-# Express Learning Project
+# Basic Express API
 
-## 📌 Description
+Project ini dibuat untuk mempelajari fundamental backend menggunakan Express.js.
 
-This project is my learning journey using Express.js to build a REST API.
+## Fitur yang Sudah Dipelajari
 
-## 🚀 Features Implemented
+### 1. MVC Architecture
 
-- Basic Express server
-- REST API (GET, POST, PUT, DELETE)
-- Route parameters
-- JSON body parsing
-- Modular routing with express.Router()
-- Custom middleware (logging & validation)
-- Basic error handling
+Memisahkan logic aplikasi menjadi:
 
-## 🛠 Tech Stack
+- Model
+- Controller
+- Service
+- Route
 
-- Node.js
-- Express.js
+### 2. Service Layer
 
-## 📂 Project Structure
+Business logic ditempatkan di service agar controller tetap bersih.
 
-```
-controllers/
-routes/
-index.js
-```
+### 3. Middleware
 
-## ▶️ How to Run
+Digunakan untuk validasi request sebelum masuk ke controller.
 
-```bash
-npm install
-npm run dev
-```
+### 4. REST API
 
-Server runs at:
+Endpoint yang dibuat:
 
-```
-http://localhost:3000
-```
+GET /products  
+GET /products/:id  
+POST /products
 
-## 🧠 What I Learned
+POST /orders  
+GET /orders
 
-- How Express handles routing
-- How middleware works in request lifecycle
-- Difference between route-level and global middleware
-- Basic REST API architecture
+### 5. Business Logic
+
+Menggunakan:
+
+- map()
+- find()
+- reduce()
+
+Untuk menghitung subtotal order.

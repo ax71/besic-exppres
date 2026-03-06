@@ -1,10 +1,10 @@
 {
   "name": "express_n8n",
   "version": "1.0.0",
-  "description": "",
+  "description": "This project is my learning journey using Express.js to build a REST API.",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "src/app.js",
   "scripts": {
     "dev": "nodemon server.js",
@@ -16,5 +16,14 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ax71/besic-exppres.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ax71/besic-exppres/issues"
+  },
+  "homepage": "https://github.com/ax71/besic-exppres#readme"
 }
