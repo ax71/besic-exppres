@@ -25,12 +25,9 @@ Digunakan untuk validasi request sebelum masuk ke controller.
 
 Endpoint yang dibuat:
 
-GET /products  
-GET /products/:id  
 POST /products
 
-POST /orders  
-GET /orders
+POST /orders
 
 ### 5. Business Logic
 

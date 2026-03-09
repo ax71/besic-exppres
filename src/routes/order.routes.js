@@ -1,13 +1,8 @@
 import express from "express";
-import {
-  createOrderController,
-  getOrdersController,
-} from "../controllers/order.controller.js";
-import { validateOrderMiddleware } from "../middleware/order.middleware.js";
+import { createOrderController } from "../controllers/order.controller.js";
 
 const router = express.Router();
 
-router.post("/orders", validateOrderMiddleware, createOrderController);
-router.get("/orders", getOrdersController);
+router.post("/orders", createOrderController);
 
 export default router;

@@ -1,23 +1,16 @@
-import { orders } from "../models/order.model.js";
+import { Order } from "../models/order.model.js";
 
-export const createorderService = (items) => {
-  const subtotal = items.reduce((acc, item) => {
-    return acc + item.price * item.quantity;
+export const createOrderService = async (data) => {
+  console.log(data.items);
+
+  const subTotal = data.items.reduce((total, item) => {
+    return total + item.price * item.quantity;
   }, 0);
 
-  const newOrder = {
-    id: orders.length + 1,
-    items,
-    subtotal,
-    createdAt: new Date(),
-    status: "pending",
-  };
+  const order = await Order.create({
+    ...data,
+    subTotal,
+  });
 
-  orders.push(newOrder);
-
-  return newOrder;
-};
-
-export const getOrdersService = () => {
-  return orders;
+  return order;
 };

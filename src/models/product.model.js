@@ -1,36 +1,26 @@
-export const product = [
+import mongoose from "mongoose";
+
+const productSchema = new mongoose.Schema(
   {
-    id: 1,
-    name: "coffe latte",
-    price: 20000,
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+      min: 1,
+    },
+    category: {
+      type: String,
+      required: true,
+      trim: true,
+    },
   },
   {
-    id: 2,
-    name: "matcha latte",
-    price: 33000,
+    timestamps: true,
   },
-  {
-    id: 3,
-    name: "thai tea",
-    price: 27000,
-  },
-];
+);
 
-export const getAllProducts = () => {
-  return product;
-};
-
-export const findProductById = (id) => {
-  return product.find((product) => product.id === id);
-};
-
-export const createProduct = (data) => {
-  const newProduct = {
-    id: product.length + 1,
-    ...data,
-  };
-
-  product.push(newProduct);
-
-  return newProduct;
-};
+export const Product = mongoose.model("Product", productSchema);
