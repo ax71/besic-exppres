@@ -11,6 +11,10 @@ const app = express();
 
 app.use(express.json());
 
+//Product Routes
 app.use("/api", productRoutes);
+
+//Order Routes
 app.use("/api", orderRoutes);
+
 export default app;

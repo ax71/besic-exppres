@@ -14,3 +14,31 @@ export const createOrderService = async (data) => {
 
   return order;
 };
+
+export const getAllOrdersService = async (page, limit) => {
+  if (!limit || !page) {
+    return await Order.find().populate("items.product", "name price category");
+  }
+
+  const skip = (page - 1) * limit;
+
+  const orders = await Order.find()
+    .populate("items.product", "name price category")
+    .skip(skip)
+    .limit(parseInt(limit));
+
+  return orders;
+};
+
+export const updateOrderService = async (id, data) => {
+  const order = await Order.findByIdAndUpdate(id, data, {
+    new: true,
+    runValidators: true,
+  });
+  return order;
+};
+
+export const deleteOrderService = async (id) => {
+  const order = await Order.findByIdAndDelete(id);
+  return order;
+};
